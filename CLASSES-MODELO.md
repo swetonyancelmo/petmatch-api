@@ -1,0 +1,1 @@
+![Captura de tela 2025-11-26 001754.png](images/Captura%20de%20tela%202025-11-26%20001754.png)
