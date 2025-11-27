@@ -22,7 +22,11 @@ public class Animal {
     @Column(nullable = false)
     private String sexo;
 
-    private Boolean adotado;
+    @Column(nullable = false)
+    private String tipo;
+
+    @Column(nullable = false)
+    private Boolean adotado = false;
 
     @ManyToOne
     @JoinColumn(name = "adotante_id")
