@@ -1,12 +1,30 @@
 package com.swetonyancelmo.petmatch.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Table(name = "animais")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long id;
+
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false)
+    private String sexo;
+
+    private Boolean adotado;
+
+    @ManyToOne
+    @JoinColumn(name = "adotante_id")
+    private Adotante adotante;
 }
