@@ -26,4 +26,11 @@ public class AnimalDTO {
             this(animal.getNome(), animal.getSexo(), animal.getTipo());
         }
     }
+
+    public record Update(
+            String nome,
+            String sexo,
+            String tipo,
+            Boolean adotado
+    ){}
 }
