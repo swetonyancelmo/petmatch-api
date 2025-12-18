@@ -1,35 +1,35 @@
-package com.swetonyancelmo.petmatch.model;
+// package com.swetonyancelmo.petmatch.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+// import jakarta.persistence.*;
+// import lombok.AllArgsConstructor;
+// import lombok.Data;
+// import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+// import java.time.LocalDate;
 
-@Entity
-@Table(name = "adocoes")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Adocao {
+// @Entity
+// @Table(name = "adocoes")
+// @Data
+// @NoArgsConstructor
+// @AllArgsConstructor
+// public class Adocao {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     private Long id;
 
-    @Column(nullable = false)
-    private Animal animal;
+//     @Column(nullable = false)
+//     private Animal animal;
 
-    @Column(nullable = false)
-    private Adotante adotante;
+//     @Column(nullable = false)
+//     private Adotante adotante;
 
-    private LocalDate dataAdocao;
+//     private LocalDate dataAdocao;
 
-    @PrePersist
-    private void prePersist(){
-        if(this.dataAdocao == null){
-            this.dataAdocao = LocalDate.now();
-        }
-    }
-}
+//     @PrePersist
+//     private void prePersist(){
+//         if(this.dataAdocao == null){
+//             this.dataAdocao = LocalDate.now();
+//         }
+//     }
+// }

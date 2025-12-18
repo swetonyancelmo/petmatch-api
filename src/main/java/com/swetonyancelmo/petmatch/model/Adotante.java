@@ -1,30 +1,30 @@
-package com.swetonyancelmo.petmatch.model;
+// package com.swetonyancelmo.petmatch.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+// import jakarta.persistence.*;
+// import lombok.AllArgsConstructor;
+// import lombok.Data;
+// import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 
-@Entity
-@Data
-@Table(name = "adotantes")
-@NoArgsConstructor
-@AllArgsConstructor
-public class Adotante {
+// @Entity
+// @Data
+// @Table(name = "adotantes")
+// @NoArgsConstructor
+// @AllArgsConstructor
+// public class Adotante {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     private Long id;
 
-    @Column(nullable = false)
-    private String nome;
+//     @Column(nullable = false)
+//     private String nome;
 
-    @Column(nullable = false, unique = true, length = 11)
-    private String cpf;
+//     @Column(nullable = false, unique = true, length = 11)
+//     private String cpf;
 
-    @OneToMany(mappedBy = "adotante",  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Animal> animais = new ArrayList<>();
-}
+//     @OneToMany(mappedBy = "adotante",  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//     private List<Animal> animais = new ArrayList<>();
+// }

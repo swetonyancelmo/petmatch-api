@@ -28,7 +28,7 @@ public class Animal {
     @Column(nullable = false)
     private Boolean adotado = false;
 
-    @ManyToOne
-    @JoinColumn(name = "adotante_id")
-    private Adotante adotante;
+    // @ManyToOne
+    // @JoinColumn(name = "adotante_id")
+    // private Adotante adotante;
 }
