@@ -1,4 +1,4 @@
-package com.swetonyancelmo.petmatch.model.dto;
+package com.swetonyancelmo.petmatch.dto;
 
 import com.swetonyancelmo.petmatch.model.Animal;
 import jakarta.validation.constraints.NotBlank;

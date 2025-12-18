@@ -1,8 +1,8 @@
 package com.swetonyancelmo.petmatch.service;
 
+import com.swetonyancelmo.petmatch.dto.AnimalDTO;
 import com.swetonyancelmo.petmatch.exceptions.ResourceNotFoundException;
 import com.swetonyancelmo.petmatch.model.Animal;
-import com.swetonyancelmo.petmatch.model.dto.AnimalDTO;
 import com.swetonyancelmo.petmatch.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
