@@ -1,7 +1,10 @@
 package com.swetonyancelmo.petmatch.service;
 
-import com.swetonyancelmo.petmatch.dto.AnimalDTO;
+import com.swetonyancelmo.petmatch.dto.Response.AnimalDTO;
+import com.swetonyancelmo.petmatch.dto.Request.CreateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.Request.UpdateAnimalDTO;
 import com.swetonyancelmo.petmatch.exceptions.ResourceNotFoundException;
+import com.swetonyancelmo.petmatch.mapper.AnimalMapper;
 import com.swetonyancelmo.petmatch.model.Animal;
 import com.swetonyancelmo.petmatch.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AnimalService {
@@ -16,39 +20,50 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepository;
 
+    @Autowired
+    private AnimalMapper animalMapper;
+
     @Transactional
-    public Animal create(AnimalDTO.Create dto){
+    public AnimalDTO create(CreateAnimalDTO dto){
         Animal novoAnimal = new Animal();
 
-        novoAnimal.setNome(dto.nome());
-        novoAnimal.setSexo(dto.sexo());
-        novoAnimal.setTipo(dto.tipo());
+        novoAnimal.setNome(dto.getNome());
+        novoAnimal.setSexo(dto.getSexo());
+        novoAnimal.setTipo(dto.getTipo());
 
-        return animalRepository.save(novoAnimal);
+        Animal animalCadastrado = animalRepository.save(novoAnimal);
+
+        return animalMapper.tDto(animalCadastrado);
     }
 
     @Transactional
-    public Animal update(Long id, AnimalDTO.Update dto){
+    public AnimalDTO update(Long id, UpdateAnimalDTO dto){
         Animal animal = animalRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Animal não encontrado com o ID: " + id));
 
-        if (dto.nome() != null) animal.setNome(dto.nome());
-        if (dto.sexo() != null) animal.setSexo(dto.sexo());
-        if (dto.tipo() != null) animal.setTipo(dto.tipo());
-        if (dto.adotado() != null) animal.setAdotado(dto.adotado());
+        if (dto.getNome() != null) animal.setNome(dto.getNome());
+        if (dto.getSexo() != null) animal.setSexo(dto.getSexo());
+        if (dto.getTipo() != null) animal.setTipo(dto.getTipo());
+        if (dto.getAdotado() != null) animal.setAdotado(dto.getAdotado());
 
-        return animalRepository.save(animal);
+        Animal animalAtualizado = animalRepository.save(animal);
+
+        return animalMapper.tDto(animalAtualizado);
     }
 
     @Transactional(readOnly = true)
-    public List<Animal> find(){
-      return animalRepository.findAll();
+    public List<AnimalDTO> find(){
+      return animalRepository.findAll()
+            .stream()
+            .map(animalMapper::tDto)
+            .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public Animal findById(Long id){
+    public AnimalDTO findById(Long id){
         return animalRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Animal não encontrado com o ID: " + id));
+               .map(animalMapper::tDto)
+               .orElseThrow(() -> new ResourceNotFoundException("Animal não encontrado com o ID: " + id));
     }
 
     @Transactional
