@@ -1,4 +1,4 @@
-package com.swetonyancelmo.petmatch.dto.Request;
+package com.swetonyancelmo.petmatch.dto.request;
 
 import lombok.Data;
 
