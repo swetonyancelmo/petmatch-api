@@ -1,7 +1,9 @@
 package com.swetonyancelmo.petmatch.repository;
 
-import com.swetonyancelmo.petmatch.model.Animal;
+import com.swetonyancelmo.petmatch.model.Adotante;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AdotanteRepository extends JpaRepository<Animal, Long> {
+@Repository
+public interface AdotanteRepository extends JpaRepository<Adotante, Long> {
 }
