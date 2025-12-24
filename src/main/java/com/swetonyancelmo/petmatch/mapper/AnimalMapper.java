@@ -3,9 +3,9 @@ package com.swetonyancelmo.petmatch.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import com.swetonyancelmo.petmatch.dto.Request.CreateAnimalDTO;
-import com.swetonyancelmo.petmatch.dto.Request.UpdateAnimalDTO;
-import com.swetonyancelmo.petmatch.dto.Response.AnimalDTO;
+import com.swetonyancelmo.petmatch.dto.request.CreateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.request.UpdateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.response.AnimalDTO;
 import com.swetonyancelmo.petmatch.model.Animal;
 
 @Mapper(componentModel = "spring")

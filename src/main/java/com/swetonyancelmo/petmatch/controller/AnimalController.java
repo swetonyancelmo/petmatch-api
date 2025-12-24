@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.swetonyancelmo.petmatch.dto.Request.CreateAnimalDTO;
-import com.swetonyancelmo.petmatch.dto.Request.UpdateAnimalDTO;
-import com.swetonyancelmo.petmatch.dto.Response.AnimalDTO;
+import com.swetonyancelmo.petmatch.dto.request.CreateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.request.UpdateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.response.AnimalDTO;
 import com.swetonyancelmo.petmatch.service.AnimalService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -48,7 +48,7 @@ public class AnimalController {
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Animal atualizado com sucesso."),
         @ApiResponse(responseCode = "404", description = "Animal não encontrado"),
-        @ApiResponse(responseCode = "400", description = "Falha ao cadastrar Animal")
+        @ApiResponse(responseCode = "400", description = "Falha ao atualizar Animal")
     })
     public ResponseEntity<AnimalDTO> update(@PathVariable Long id, @RequestBody UpdateAnimalDTO dto) {
         return ResponseEntity.ok(animalService.update(id, dto));

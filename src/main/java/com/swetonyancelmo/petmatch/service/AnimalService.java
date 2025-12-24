@@ -1,8 +1,8 @@
 package com.swetonyancelmo.petmatch.service;
 
-import com.swetonyancelmo.petmatch.dto.Response.AnimalDTO;
-import com.swetonyancelmo.petmatch.dto.Request.CreateAnimalDTO;
-import com.swetonyancelmo.petmatch.dto.Request.UpdateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.response.AnimalDTO;
+import com.swetonyancelmo.petmatch.dto.request.CreateAnimalDTO;
+import com.swetonyancelmo.petmatch.dto.request.UpdateAnimalDTO;
 import com.swetonyancelmo.petmatch.exceptions.ResourceNotFoundException;
 import com.swetonyancelmo.petmatch.mapper.AnimalMapper;
 import com.swetonyancelmo.petmatch.model.Animal;
